@@ -1,0 +1,50 @@
+BenchmarkDotNet=v0.10.14, OS=Windows 8.1 (6.3.9600.0)
+Intel Core i7-3770 CPU 3.40GHz (Ivy Bridge), 1 CPU, 8 logical and 4 physical cores
+Frequency=3312794 Hz, Resolution=301.8600 ns, Timer=TSC
+.NET Core SDK=2.1.301
+  [Host]     : .NET Core 2.1.1 (CoreCLR 4.6.26606.02, CoreFX 4.6.26606.05), 64bit RyuJIT
+  DefaultJob : .NET Core 2.1.1 (CoreCLR 4.6.26606.02, CoreFX 4.6.26606.05), 64bit RyuJIT
+
+
+                  Method |     N |            Mean |         Error |        StdDev |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
+------------------------ |------ |----------------:|--------------:|--------------:|---------:|---------:|---------:|----------:|
+   BinaryToHex_Benchmark |     4 |        28.07 ns |     0.0939 ns |     0.0833 ns |   0.0209 |        - |        - |      88 B |
+ BytesToString_Benchmark |     4 |       284.20 ns |     0.7797 ns |     0.6912 ns |   0.0801 |        - |        - |     336 B |
+   BinaryToHex_Benchmark |    40 |       149.99 ns |     0.4892 ns |     0.4336 ns |   0.0894 |        - |        - |     376 B |
+ BytesToString_Benchmark |    40 |     2,282.08 ns |     6.8370 ns |     6.3953 ns |   0.4196 |        - |        - |    1776 B |
+   BinaryToHex_Benchmark |   400 |     1,362.73 ns |    15.1254 ns |    14.1483 ns |   0.7744 |        - |        - |    3256 B |
+ BytesToString_Benchmark |   400 |    22,227.32 ns |   103.9898 ns |    97.2721 ns |   3.8452 |        - |        - |   16176 B |
+   BinaryToHex_Benchmark |  4000 |    19,827.60 ns |    74.5436 ns |    69.7281 ns |   7.6294 |        - |        - |   32056 B |
+ BytesToString_Benchmark |  4000 |   222,003.00 ns |   703.9690 ns |   658.4929 ns |  38.0859 |        - |        - |  160176 B |
+   BinaryToHex_Benchmark |  8000 |    51,690.39 ns |   100.0479 ns |    88.6899 ns |  15.2588 |        - |        - |   64056 B |
+ BytesToString_Benchmark |  8000 |   444,724.14 ns |   815.8592 ns |   723.2379 ns |  76.1719 |   0.4883 |        - |  320176 B |
+   BinaryToHex_Benchmark | 40000 |   303,903.25 ns |   145.5146 ns |   105.2166 ns |  99.6094 |  99.6094 |  99.6094 |  320056 B |
+ BytesToString_Benchmark | 40000 | 2,275,532.55 ns | 4,740.4788 ns | 4,434.2464 ns | 347.6563 |  58.5938 |  46.8750 | 1600464 B |
+   BinaryToHex_Benchmark | 80000 |   617,356.67 ns |   845.4539 ns |   749.4728 ns | 199.2188 | 199.2188 | 199.2188 |  640056 B |
+ BytesToString_Benchmark | 80000 | 4,589,377.42 ns | 5,797.4770 ns | 4,526.2883 ns | 710.9375 | 281.2500 | 140.6250 | 3200824 B |
+
+
+
+BenchmarkDotNet=v0.10.14, OS=Windows 8.1 (6.3.9600.0)
+Intel Core i7-3770 CPU 3.40GHz (Ivy Bridge), 1 CPU, 8 logical and 4 physical cores
+Frequency=3312794 Hz, Resolution=301.8600 ns, Timer=TSC
+  [Host]     : .NET Framework 4.7.1 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3062.0
+  DefaultJob : .NET Framework 4.7.1 (CLR 4.0.30319.42000), 64bit RyuJIT-v4.7.3062.0
+
+
+                  Method |     N |            Mean |         Error |        StdDev |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
+------------------------ |------ |----------------:|--------------:|--------------:|---------:|---------:|---------:|----------:|
+   BinaryToHex_Benchmark |     4 |        23.80 ns |     0.1809 ns |     0.1692 ns |   0.0210 |        - |        - |      88 B |
+ BytesToString_Benchmark |     4 |       356.08 ns |     0.6594 ns |     0.5506 ns |   0.0801 |        - |        - |     336 B |
+   BinaryToHex_Benchmark |    40 |       120.22 ns |     0.3645 ns |     0.3409 ns |   0.0894 |        - |        - |     376 B |
+ BytesToString_Benchmark |    40 |     2,667.23 ns |     5.9902 ns |     4.6767 ns |   0.4196 |        - |        - |    1776 B |
+   BinaryToHex_Benchmark |   400 |     1,108.42 ns |     3.1795 ns |     2.9741 ns |   0.7744 |        - |        - |    3256 B |
+ BytesToString_Benchmark |   400 |    25,713.15 ns |    45.4793 ns |    42.5414 ns |   3.8452 |        - |        - |   16176 B |
+   BinaryToHex_Benchmark |  4000 |    18,729.35 ns |    50.9231 ns |    47.6335 ns |   7.6294 |        - |        - |   32104 B |
+ BytesToString_Benchmark |  4000 |   256,397.89 ns |   522.5598 ns |   463.2356 ns |  38.0859 |        - |        - |  160212 B |
+   BinaryToHex_Benchmark |  8000 |    50,187.19 ns |    96.6262 ns |    90.3842 ns |  15.2588 |        - |        - |   64104 B |
+ BytesToString_Benchmark |  8000 |   513,640.69 ns | 1,163.2090 ns | 1,088.0663 ns |  76.1719 |   0.9766 |        - |  320221 B |
+   BinaryToHex_Benchmark | 40000 |   296,008.47 ns |   179.1830 ns |   139.8943 ns |  99.6094 |  99.6094 |  99.6094 |  320056 B |
+ BytesToString_Benchmark | 40000 | 2,612,693.99 ns | 3,057.0586 ns | 2,552.7822 ns | 347.6563 |  58.5938 |  46.8750 | 1600766 B |
+   BinaryToHex_Benchmark | 80000 |   602,314.11 ns | 1,032.3277 ns |   965.6398 ns | 199.2188 | 199.2188 | 199.2188 |  640056 B |
+ BytesToString_Benchmark | 80000 | 5,246,457.73 ns | 9,149.3566 ns | 7,640.1264 ns | 710.9375 | 281.2500 | 140.6250 | 3201706 B |
