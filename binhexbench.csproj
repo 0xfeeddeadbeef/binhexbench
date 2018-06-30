@@ -2,11 +2,13 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <TargetFrameworks>netcoreapp2.1;net472</TargetFrameworks>
         <Optimize>true</Optimize>
         <Configuration>Release</Configuration>
         <DebugType>pdbonly</DebugType>
         <DebugSymbols>true</DebugSymbols>
+        <FileAlignment>4096</FileAlignment>
     </PropertyGroup>
 
     <ItemGroup>
