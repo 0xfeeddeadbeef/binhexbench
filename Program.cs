@@ -113,6 +113,29 @@ public unsafe class HexBench
         return new string(result);
     }
 
+    public static string ByteArrayToHexViaLookup32UnsafeDirect(byte[] bytes)
+    {
+        var lookupP = _lookup32UnsafeP;
+        var result = new string((char)0, bytes.Length * 2);
+        fixed (byte* bytesP = bytes)
+        fixed (char* resultP = result)
+        {
+            uint* resultP2 = (uint*)resultP;
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                resultP2[i] = lookupP[bytesP[i]];
+            }
+        }
+
+        return result;
+    }
+
+    [Benchmark(Baseline = true)]
+    public string BitConverter_Benchmark()
+    {
+        return BitConverter.ToString(this.data).Replace("-", string.Empty);
+    }
+
     [Benchmark]
     public string BinaryToHex_Benchmark()
     {
@@ -129,5 +152,11 @@ public unsafe class HexBench
     public string ByteArrayToHex_Benchmark()
     {
         return ByteArrayToHexViaLookup32Unsafe(this.data);
+    }
+
+    [Benchmark]
+    public string ByteArrayToHexDirect_Benchmark()
+    {
+        return ByteArrayToHexViaLookup32UnsafeDirect(this.data);
     }
 }
